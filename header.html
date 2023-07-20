@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>header</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <script>
+        jQuery(document).ready(function () {
+            $('.menu>li').mouseover(function () {
+                $(this).find('.submenu').stop().slideDown(500);
+            }).mouseout(function () {
+                $(this).find('.submenu').stop().slideUp(500);
+            });
+        });
+    </script>
+
+    <style>
+        * {
+            margin: 0 auto;
+            padding: 0;
+            list-style: none;
+            color: #000000;
+        }
+
+        body {
+            width: 1400px;
+        }
+
+        a {
+            display: block;
+            text-decoration: none;
+        }
+
+        nav {
+            width: 1000px;
+            z-index: 1;
+            position: relative;
+            font-size: 20px;
+        }
+
+        .menu>li {
+            float: left;
+            width: 250px;
+            height: 40px;
+            background-color: #70a0cf;
+        }
+
+        .menu>li>a {
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .menu>li:hover>a {
+            background-color: #84acd3;
+        }
+
+        .submenu {
+            display: none;
+        }
+
+        .submenu>li {
+            width: 250px;
+            height: 40px;
+            background-color: #d7eafd;
+        }
+
+        .submenu>li>a {
+            line-height: 40px;
+            font-size: 18px;
+            text-align: center;
+            color: #70a0cf;
+        }
+
+        .submenu>li:hover>a {
+            text-decoration: underline;
+            font-weight: bold;
+            color: black
+        }
+
+        .header {
+            color: coral;
+            font-size: 50px;
+            padding: 0px 0px 0px 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p class="header"><a href="main.html" target="_top">내가 가고싶은 여행지 목록</a></p>
+    </div>
+    <nav>
+        <ul class="menu">
+            <li><a href="#">일본</a>
+                <ul class="submenu">
+                    <li><a href="Fukuoka_main.html" target="_top">후쿠오카</a></li>
+                    <li><a href="#">오사카</a></li>
+                    <li><a href="#">도쿄</a></li>
+                    <li><a href="#">삿포로</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#">메인메뉴2</a>
+                <ul class="submenu">
+                    <li><a href="#">서브메뉴2-1</a></li>
+                    <li><a href="#">서브메뉴2-2</a></li>
+                    <li><a href="#">서브메뉴2-3</a></li>
+                    <li><a href="#">서브메뉴2-4</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#">메인메뉴3</a>
+                <ul class="submenu">
+                    <li><a href="#">서브메뉴3-1</a></li>
+                    <li><a href="#">서브메뉴3-2</a></li>
+                    <li><a href="#">서브메뉴3-3</a></li>
+                    <li><a href="#">서브메뉴3-4</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#">메인메뉴4</a>
+                <ul class="submenu">
+                    <li><a href="#">서브메뉴4-1</a></li>
+                    <li><a href="#">서브메뉴4-2</a></li>
+                    <li><a href="#">서브메뉴4-3</a></li>
+                    <li><a href="#">서브메뉴4-4</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</body>
+
+</html>
