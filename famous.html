@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-color: #00002E;
+        }
+        .header {
+            position: fixed;
+            width: 100%;
+            height: 285px;
+            border: none;
+            z-index: 9999;
+        }
+
+        .list {
+            margin: 230px 0px 0px 0px;
+            padding: 200px 0px 0px 0px;
+            height: 550px;
+            font-weight: bold;
+            font-size: 25px;
+            width: 300px;
+            text-align: left;
+            position: absolute;
+            left: 0;
+            background: #00002E;
+        }
+
+        a {
+            color: white;
+            padding: 0px 0px 60px 0px;
+            display: block;
+            text-decoration: none;
+        }
+
+        img {
+            width: 400px;
+            height: 350px;
+        }
+
+        li {
+            color: white;
+            font-weight: bold;
+            display: block;
+        }
+
+        .box {
+            width: 400px;
+            height: 350px;
+            float: left;
+            padding: 30px 0px 0px 30px;
+        }
+
+        .big_box1 {
+            padding: 200px 0px 0px 300px;
+        }
+
+        .big_box2 {
+            padding: 0px 0px 0px 300px;
+            clear: both;
+        }
+
+        .btn2::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-color: #000;
+            -webkit-transform: scaleY(.3);
+            transform: scaleY(.3);
+            opacity: 0;
+            transition: all .3s
+        }
+
+        .btn2:hover {
+            color: #6098FF;
+            background-color: #fff;
+        }
+
+        .btn2:hover::before {
+            opacity: 1;
+            background-color: #fff;
+            -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+            transition: -webkit-transform .6s cubic-bezier(.08, .35, .13, 1.02), opacity .4s;
+            transition: transform .6s cubic-bezier(.08, .35, .13, 1.02), opacity
+        }
+       
+    </style>
+</head>
+
+<body>
+    <iframe src="./header.html" class="header"></iframe>
+    
+    <div class="wrapper">
+        <div class="list">
+            <a style="padding: 50px;" class="btn2" href="" target="_top">● 유명관광지</a>
+            <a style="padding: 50px;" class="btn2" href="" target="_top">● 맛집추천</a>
+            <a style="padding: 50px;" class="btn2" href="" target="_top">● 기후</a>
+        </div>
+    </div>
+
+    <div>
+        <div class="big_box1">
+            <div class="box">
+                <a href="https://www.tripadvisor.co.kr/Attraction_Review-g14127491-d1423813-Reviews-Ohori_Park-Chuo_Fukuoka_Fukuoka_Prefecture_Kyushu.html"
+                    target="_blank">
+                    <img
+                        src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/58/01/38/caption.jpg?w=500&h=400&s=1">
+                    <li>1. 오호리 공원</li>
+                </a>
+            </div>
+            <div class="box">
+                <a href="https://www.tripadvisor.co.kr/Attraction_Review-g14127501-d320702-Reviews-Kushida_Shrine-Hakata_Fukuoka_Fukuoka_Prefecture_Kyushu.html"
+                    target="_blank">
+                    <img
+                        src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/dc/42/06/img-20190315-080523-largejpg.jpg?w=500&h=-1&s=1">
+                    <li>2.Kushida Shrine</li>
+                </a>
+            </div>
+            <div class="box">
+                <a href="https://www.tripadvisor.co.kr/Attraction_Review-g298207-d1423810-Reviews-Uminonakamichi_Seaside_Park-Fukuoka_Fukuoka_Prefecture_Kyushu.html"
+                    target="_blank">
+                    <img
+                        src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/62/ac/a8/nemophila-flowers-in.jpg?w=500&h=-1&s=1">
+                    <li>3.Uminonakamichi Seaside Park</li>
+                </a>
+            </div>
+        </div>
+
+        <div class="big_box2">
+            <div class="box">
+                <a href="https://www.tripadvisor.co.kr/Attraction_Review-g14127501-d10131836-Reviews-Hakata_Station-Hakata_Fukuoka_Fukuoka_Prefecture_Kyushu.html"
+                    target="_blank"> <img
+                        src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/05/aa/c2/hakata-station-front.jpg?w=500&h=400&s=1">
+                    <li>4.Hakata Station</li>
+                </a>
+            </div>
+            <div class="box">
+                <a href="https://www.tripadvisor.co.kr/Attraction_Review-g14135106-d1423812-Reviews-Tenjin_Underground_Shopping_Center-Tenjin_Chuo_Fukuoka_Fukuoka_Prefecture_Kyush.html"
+                    target="_blank"> <img
+                        src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/bb/86/7c/tenjin-underground-mall.jpg?w=500&h=-1&s=1">
+                    <li>5.텐진 지하 상가</li>
+                </a>
+            </div>
+            <div class="box">
+                <a href="https://www.tripadvisor.co.kr/Attraction_Review-g14127501-d1423816-Reviews-Tochoji_Temple-Hakata_Fukuoka_Fukuoka_Prefecture_Kyushu.html"
+                    target="_blank"> <img
+                        src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/42/3f/df/photo1jpg.jpg?w=500&h=400&s=1">
+                    <li>6.Tochoji temple</li>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+</body>
+
+</html>

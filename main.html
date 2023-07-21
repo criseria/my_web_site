@@ -11,13 +11,14 @@
 
     <script>
         $('#slide3>ul>li').hide();
+        
         $('#slide3>ul>li:first-child').show();
 
         setInterval(function () {
             $('#slide3>ul>li:first-child').fadeOut()
                 .next().fadeIn().end(1000)
                 .appendTo('#slide3>ul');
-        }, 3000);
+        }, 4000);
 
     </script>
 
@@ -29,7 +30,14 @@
             text-decoration: none;
             list-style: none;
             color: #333333;
-            
+        }
+        
+        .header {
+            position: fixed;
+            width: 100%;
+            height: 285px;
+            border: none;
+            z-index: 9999;
         }
 
         img {
@@ -62,18 +70,15 @@
             position: absolute;
             font-size: 0;
         }
-        .header {
-            position: fixed;
-            width: 100%;
-            height: 285px;
-            border: none;
-            z-index: 9999;
-        }
+
     </style>
 </head>
 
 <body>
-    <iframe src="./header.html" class="header"></iframe>
+    <div>
+        <iframe src="./header.html" class="header"></iframe>
+    </div>
+
     
     <div id="index_03">
         <div id="slide3">
