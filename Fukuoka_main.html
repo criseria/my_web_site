@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <style>
-        /* @import url(https://fonts.googleapis.com/css?family=Varela+Round); */
         body {
             background-color: #00002E;
         }
@@ -16,7 +14,7 @@
             width: 800px;
             height: 700px;
             display: block;
-            margin: 150px 0px 0px 520px;
+            margin: 150px 0px 0px 400px;
             position: relative;
         }
 
@@ -123,12 +121,12 @@
             position: relative;
             border-radius: 100%;
             display: inline-block;
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: white;
         }
 
         .nav-dots .nav-dot:hover {
             cursor: pointer;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: yellowgreen;
         }
 
         input#img-1:checked~.nav-dots label#img-dot-1,
@@ -137,17 +135,27 @@
         input#img-4:checked~.nav-dots label#img-dot-4,
         input#img-5:checked~.nav-dots label#img-dot-5,
         input#img-6:checked~.nav-dots label#img-dot-6 {
-            background: rgba(0, 0, 0, 0.8);
+            background: yellowgreen;
         }
 
         .list {
+            margin: 210px 0px 0px 0px;
+            padding: 200px 0px 0px 0px;
+            height: 550px;
             font-weight: bold;
+            font-size: 25px;
+            width: 300px;
+            text-align: left;
+            position: absolute;
+            left: 0;
+            background: #00002E;
+            /* font-weight: bold;
             font-size: 25px;
             width: 200px;
             text-align: left;
             position: absolute;
             left: 0;
-            margin: 400px 0px 0px 100px;
+            margin: 400px 0px 0px 100px; */
         }
 
         .header {
@@ -194,6 +202,13 @@
             transition: transform .6s cubic-bezier(.08, .35, .13, 1.02), opacity
         }
 
+        a {
+            color: white;
+            padding: 50px;
+            display: block;
+            text-decoration: none;
+        }
+
     </style>
     <title>Document</title>
 </head>
@@ -208,9 +223,9 @@
 
     <div class="wrapper">
         <div class="list">
-            <a style="padding: 50px;" class="btn2" href="" target="_top">● 유명관광지</a>
-            <a style="padding: 50px;" class="btn2" href="" target="_top">● 맛집추천</a>
-            <a style="padding: 50px;" class="btn2" href="" target="_top">● 기후</a>
+            <a class="btn2" href="famous.html" target="_top">● 유명관광지</a>
+            <a class="btn2" href="restaurant.html" target="_top">● 맛집추천</a>
+            <a class="btn2" href="weather.html" target="_top">● 기후</a>
         </div>
     </div>
 

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>맛집추천</title>
+
+    <style>
+        body {
+            background-color: #00002E;
+        }
+
+        .header {
+            position: fixed;
+            width: 100%;
+            height: 285px;
+            border: none;
+            z-index: 9999;
+        }
+
+        a {
+            color: #5b96c7;
+            padding: 0px 0px 60px 0px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .btn2::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-color: #000;
+            -webkit-transform: scaleY(.3);
+            transform: scaleY(.3);
+            opacity: 0;
+            transition: all .3s
+        }
+
+        .btn2:hover {
+            color: #6098FF;
+            background-color: #fff;
+        }
+
+        .btn2:hover::before {
+            opacity: 1;
+            background-color: #fff;
+            -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+            transition: -webkit-transform .6s cubic-bezier(.08, .35, .13, 1.02), opacity .4s;
+            transition: transform .6s cubic-bezier(.08, .35, .13, 1.02), opacity
+        }
+
+        a {
+            color: white;
+            padding: 50px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .list {
+            margin: 210px 0px 0px 0px;
+            padding: 200px 0px 0px 0px;
+            height: 550px;
+            font-weight: bold;
+            font-size: 25px;
+            width: 300px;
+            text-align: left;
+            position: absolute;
+            left: 0;
+            background: #00002E;
+        }
+    </style>
+</head>
+
+<body>
+    <iframe src="./header.html" class="header"></iframe>
+
+    <div class="wrapper">
+        <div class="list">
+            <a class="btn2" href="famous.html" target="_top">● 유명관광지</a>
+            <a class="btn2" href="restaurant.html" target="_top">● 맛집추천</a>
+            <a class="btn2" href="weather.html" target="_top">● 기후</a>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>

@@ -6,23 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <title>메인화면</title>
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <script>
-        $('#slide3>ul>li').hide();
-        
-        $('#slide3>ul>li:first-child').show();
+        // $('#slide3>ul>li').hide();
+        // $('#slide3>ul>li:first-child').show();
 
-        setInterval(function () {
-            $('#slide3>ul>li:first-child').fadeOut()
-                .next().fadeIn().end(1000)
-                .appendTo('#slide3>ul');
-        }, 4000);
+        // setInterval(function () {
+        //     $('#slide3>ul>li:first-child').fadeOut()
+        //         .next().fadeIn().end()
+        //         .appendTo('#slide3>ul');
+        // }, 3000);
 
+        // 위와 같은 코드를 사용 하였을 때 이미지 슬라이드가 3번째 바뀌는 이후 부터는 
+        // 정상적으로 작동하는것으로 보아 웹페이지가 로드되는 동안 이미지들이
+        // 아직 다운로드 되지 않았을 수 있고 그로인해 슬라이드쇼가 제대로 동작되지 않을 수 있다.
+        // 그러므로 js 코드들을 $(document).ready(function(){}); 안에 넣어서
+        // 문서가 준비되면 코드를 실행하도록 변경하여 문제를 해결하였음.
+
+        $(document).ready(function () {
+            $('#slide3>ul>li').hide();
+            $('#slide3>ul>li:first-child').show();
+
+            setInterval(function () {
+                $('#slide3>ul>li:first-child').fadeOut()
+                    .next().fadeIn()
+                    .end().appendTo('#slide3>ul');
+            }, 3000);
+        });
     </script>
 
     <style>
+        .header {
+            position: fixed;
+            width: 100%;
+            height: 285px;
+            border: none;
+            z-index: 9999;
+        }
+
+        body {
+            background-color: #00002E;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -31,14 +58,7 @@
             list-style: none;
             color: #333333;
         }
-        
-        .header {
-            position: fixed;
-            width: 100%;
-            height: 285px;
-            border: none;
-            z-index: 9999;
-        }
+
 
         img {
             width: 100%;
@@ -70,7 +90,6 @@
             position: absolute;
             font-size: 0;
         }
-
     </style>
 </head>
 
@@ -79,13 +98,13 @@
         <iframe src="./header.html" class="header"></iframe>
     </div>
 
-    
+
     <div id="index_03">
         <div id="slide3">
             <ul>
-                <li><a href="#"><img src="images/KakaoTalk_20230718_172441432_01.jpg" alt="슬라이드7"></a></li>
-                <li><a href="#"><img src="images/KakaoTalk_20230718_172441432_02.jpg" alt="슬라이드8"></a></li>
-                <li><a href="#"><img src="images/KakaoTalk_20230718_172441432_03.jpg" alt="슬라이드9"></a></li>
+                <li><img src="images/KakaoTalk_20230718_172441432_01.jpg" alt="슬라이드7"></li>
+                <li><img src="images/KakaoTalk_20230718_172441432_02.jpg" alt="슬라이드8"></li>
+                <li><img src="images/KakaoTalk_20230718_172441432_03.jpg" alt="슬라이드9"></li>
             </ul>
         </div>
     </div>
