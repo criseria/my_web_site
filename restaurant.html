@@ -5,6 +5,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>맛집추천</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- 구글 지도 API 스크립트 -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnPYD-09xUnVsb7vMu7PrLJoz-01xivpg&callback=initMap"
+        async defer></script>
+
+    <!-- 자바스크립트 코드 -->
+    <script>
+        // initMap 함수: 지도 초기화 및 표시를 담당합니다.
+        function initMap() {
+            // 지도가 표시될 위치의 위도와 경도 설정
+            var myLatLng1 = { lat: 33.5877734, lng: 130.3920915 };
+            var myLatLng2 = { lat: 33.5966332, lng: 130.4097013 };
+            var myLatLng3 = { lat: 33.5925359, lng: 130.4089279 };
+            var myLatLng4 = { lat: 33.5871626, lng: 130.4012631 };
+            var myLatLng5 = { lat: 33.5917884, lng: 130.4197861 };
+
+            // 첫 번째 지도 생성
+            var map = new google.maps.Map(document.getElementById('map1'), {
+                center: myLatLng1, // 지도 중심 위치 설정
+                zoom: 18 // 초기 확대 정도 설정
+            });
+
+            // 첫 번째 지도에 마커 추가
+            var marker = new google.maps.Marker({
+                position: myLatLng1,
+                map: map,
+                title: '치카에'
+            });
+
+            // 두 번째 지도 생성
+            var map = new google.maps.Map(document.getElementById('map2'), {
+                center: myLatLng2, // 지도 중심 위치 설정
+                zoom: 18 // 초기 확대 정도 설정
+            });
+
+            // 두 번째 지도에 마커 추가
+            var marker = new google.maps.Marker({
+                position: myLatLng2,
+                map: map,
+                title: '하카타모츠나베오오야마 본점'
+            });
+
+            // 세 번째 지도 생성
+            var map = new google.maps.Map(document.getElementById('map3'), {
+                center: myLatLng3, // 지도 중심 위치 설정
+                zoom: 18 // 초기 확대 정도 설정
+            });
+
+            // 세 번째 지도에 마커 추가
+            var marker = new google.maps.Marker({
+                position: myLatLng3,
+                map: map,
+                title: '요시즈카 우나기야'
+            });
+
+            // 네 번째 지도 생성
+            var map = new google.maps.Map(document.getElementById('map4'), {
+                center: myLatLng4, // 지도 중심 위치 설정
+                zoom: 18 // 초기 확대 정도 설정
+            });
+
+            // 네 번째 지도에 마커 추가
+            var marker = new google.maps.Marker({
+                position: myLatLng4,
+                map: map,
+                title: '폰도'
+            });
+
+            // 다섯 번째 지도 생성
+            var map = new google.maps.Map(document.getElementById('map5'), {
+                center: myLatLng5, // 지도 중심 위치 설정
+                zoom: 18 // 초기 확대 정도 설정
+            });
+
+            // 다섯 번째 지도에 마커 추가
+            var marker = new google.maps.Marker({
+                position: myLatLng5,
+                map: map,
+                title: '키와미야 함바그'
+            });
+
+
+            $(function () {
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > 200) {
+                        $('#MOVE_TOP_BTN').fadeIn();
+                    } else {
+                        $('#MOVE_TOP_BTN').fadeOut();
+                    }
+                });
+
+                $("#MOVE_TOP_BTN").click(function () {
+                    $('html, body').animate({
+                        scrollTop: 0
+                    }, 400);
+                    return false;
+                });
+            });
+
+            $(function () {
+                // iframe 요소 숨기는 함수
+                function hideIframeOnScroll() {
+                    if ($(window).scrollTop() > 200) {
+                        $('iframe').hide();
+                    } else {
+                        $('iframe').show();
+                    }
+                }
+
+                // 스크롤 이벤트 핸들러 등록
+                $(window).scroll(function () {
+                    hideIframeOnScroll();
+                });
+
+                // 페이지 로드시 초기 설정
+                hideIframeOnScroll();
+            });
+
+
+
+        }
+    </script>
 
     <style>
         body {
@@ -47,15 +170,6 @@
             background-color: #fff;
         }
 
-        .btn2:hover::before {
-            opacity: 1;
-            background-color: #fff;
-            -webkit-transform: scaleY(1);
-            transform: scaleY(1);
-            transition: -webkit-transform .6s cubic-bezier(.08, .35, .13, 1.02), opacity .4s;
-            transition: transform .6s cubic-bezier(.08, .35, .13, 1.02), opacity
-        }
-
         a {
             color: white;
             padding: 50px;
@@ -64,16 +178,96 @@
         }
 
         .list {
-            margin: 210px 0px 0px 0px;
-            padding: 200px 0px 0px 0px;
+            margin: 100px 0px 0px 0px;
+            padding: 100px 0px 0px 0px;
             height: 550px;
             font-weight: bold;
             font-size: 25px;
             width: 300px;
             text-align: left;
-            position: absolute;
-            left: 0;
             background: #00002E;
+            position: fixed;
+            left: 50px;
+            z-index: 9999;
+        }
+
+        /* .list 내부의 a 태그에 호버 효과 추가 */
+        .list a:hover {
+            background-color: #fff;
+            color: #6098FF;
+        }
+
+        /* .list 내부의 a 태그 스타일 설정 */
+        .list a {
+            color: white;
+            padding: 50px;
+            display: block;
+            text-decoration: none;
+        }
+
+        /* .btn2 클래스에 호버 효과 추가 */
+        .btn2:hover {
+            color: #6098FF;
+        }
+
+        /* .btn2 클래스의 기본 스타일 설정 */
+        .btn2 {
+            color: white;
+            padding: 50px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .text_box {
+            display: inline-block;
+            position: relative;
+            margin: 300px 0px 0px 450px;
+        }
+
+        .text_box1 {
+            display: inline-block;
+            position: relative;
+            margin: 0px 0px 0px 450px;
+        }
+
+        .text_small_box {
+            height: 600px;
+        }
+
+        .text_small_box1 {
+            height: 800px;
+        }
+
+        h1 {
+            color: white;
+            border-bottom: 2px solid white;
+        }
+
+        ul {
+            color: white;
+            width: 1000px;
+            height: 600px;
+            padding: 0px;
+        }
+
+        img {
+            width: 500px;
+            height: 380px;
+        }
+
+        a#MOVE_TOP_BTN {
+            position: fixed;
+            right: 8%;
+            bottom: 50px;
+            display: none;
+            z-index: 999;
+            width: 50px;
+            height: 50px;
+        }
+
+        #top_btn {
+            width: 50px;
+            height: 50px;
         }
     </style>
 </head>
@@ -83,11 +277,100 @@
 
     <div class="wrapper">
         <div class="list">
+            <h1 style="margin-left: 50px;">후쿠오카</h1>
             <a class="btn2" href="famous.html" target="_top">● 유명관광지</a>
             <a class="btn2" href="restaurant.html" target="_top">● 맛집추천</a>
             <a class="btn2" href="weather.html" target="_top">● 기후</a>
         </div>
     </div>
+
+    <div>
+        <a id="MOVE_TOP_BTN" href="#"><img src="images/go-top.png" alt="" id="top_btn"></a>
+    </div>
+
+    <div class="text_box">
+        <div class="text_small_box">
+            <h1>1.치카에</h1>
+            <img src="https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/2AuX/image/nirbfuPD3DexYRer6GyS9bsco64.png"
+                alt="">
+            <div id="map1" style="width:500px; height: 380px; display: inline-block;"></div>
+            <ul>
+                후쿠오카에서 줄 서서 먹는 맛집으로 유명한 치카에는 500인 한정 점심 특선을 먹기 위해 사람들이 방문하는 장소인데요. 오픈 시간인 오전 11시 30분보다 1시간 정도 전에 도착해도 줄이
+                서 있는 믿지 못할 풍경을 확인할 수 있습니다. 내부는 혼자서 찾는 사람들이 많이 앉는 바 형태의 좌석을 포함하여 넓은 규모의 테이블 좌석이 마련되어 있으며, 점심 특선으로 사시미 정식과
+                소바 정식을 선택하여 먹을 수 있는데요. 이곳에서 직접 만든 멘타이코를 무한으로 맛볼 수 있는 것도 많은 사람들이 찾는 이유입니다.
+            </ul>
+        </div>
+    </div>
+
+    <div class="text_box1">
+        <div class="text_small_box">
+            <h1>2.오오야마</h1>
+            <img src="https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/2AuX/image/qWjUXk_cwTaXV4zXvv-P2Uo22Tk.png"
+                alt="">
+            <div id="map2" style="width:500px; height: 380px; display: inline-block;"></div>
+            <ul>
+                오오야마는 1인분도 주문 가능하여 혼행족도 부담 없이 찾아갈 수 있는 모츠나베 맛집인데요. 하카타역 키테 9층에 위치한 지점이 접근성이 좋아 여행객들이 자주 찾는 장소입니다. 된장 혹은
+                간장을 국물 베이스로 선택하면, 부추가 예쁘게 올려진 모츠나베가 등장하는데요. 고소하고 진한 국물 맛이 일품이며, 면을 추가하여 먹거나 밥에 달걀과 양념을 추가하여 죽을 만들어 먹어도
+                맛있습니다.
+            </ul>
+        </div>
+    </div>
+
+    <div class="text_box1">
+        <div class="text_small_box">
+            <h1>3.요시즈카 우나기야</h1>
+            <img src="https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/2AuX/image/m9i-8rO12MLpRVJPzf882vYzaiM.png"
+                alt="">
+            <div id="map3" style="width:500px; height: 380px; display: inline-block;"></div>
+            <ul>
+                장어를 좋아하는 사람은 반드시 들려야 하는 요시즈카 우나기야는 나카스 포장마차 주변에 위치하고 있는데요. 1873년에 시작하여 140년이 넘는 역사를 자랑하는 곳으로 특제 소스로 맛을 낸
+                장어의 깊은 맛을 느낄 수 있습니다. 오랜 역사만큼 유명한 이곳은 식사 시간대에는 굉장히 길게 줄을 서는 경우도 있으니 일찍 방문하거나 애매한 시간대에 가는 것이 좋은데요. 트립어드바이저
+                여행 사이트에 등록된 수많은 후쿠오카 음식점 가운데 TOP 3 안에 드는 곳이니 찾아가야 할 이유가 충분합니다.
+            </ul>
+        </div>
+    </div>
+
+    <div class="text_box1">
+        <div class="text_small_box1">
+            <h1>4.멘야 카네토라</h1>
+            <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FBEm2A%2FbtsgC2U4oMc%2F3nKtWKof8AkvQJQVHz1Fzk%2Fimg.jpg"
+                alt="">
+            <div id="map4" style="width:500px; height: 380px; display: inline-block;"></div>
+            <ul>
+                후쿠오카 와타나베도리에 있는 츠케멘 전문점 '멘야 카네토라(麺や兼虎)'는 돈코츠(돼지뼈), 토리가라(닭육수), 야사이(야채), 교카이류(어패류)를 사용한 진한 츠케멘 수프가 인기인
+                곳입니다.
+
+                멘야 카네토라의 사장님은 도쿄의 인기 츠케멘집인 '멘도코로 이노쇼(麺処 井の庄)'에서 수행하신 분으로, 후쿠오카 내에서 인기가 높아 언제나 만석이고 밖에는 대기줄이 늘어서 있습니다.
+
+                스태프에게 식권을 주면 츠케멘의 면량을 물어보는데, 일반적으로는 200g, 츄모리(中盛り)는 300g, 오모리(大盛り)는 400g인데, 츄모리까지는 추가 금액 없이 무료이기 때문에
+                남자들은 대부분 츄모리를 주문합니다.
+
+                인기 메뉴는 노코 츠케멘(濃厚つけ麺, 300g)으로, 카네토라의 츠케멘 면은 일본산 밀가루를 사용하여 간토(関東) 지역의 제면소에 주문 제작하는 것으로, 가수율(加水率)이 높아
+                쫄깃하면서도 씹는 맛이 좋은 굵은 후토멘입니다. 츠케지루(つけ汁)는 고운 입자의 교훈(魚粉, 말린 생선을 빻은 가루)을 가득 올려서 줍니다.
+
+                교훈까지 섞으면 정말 걸죽한 츠케지루가 완성되는데, 츠케지루 안에는 멘마(죽순)와 함께 큼직한 차슈가 들어가 있으며, 면은 일단 츠케지루만 살짝 먹어본 뒤 어느 정도 찍어서 먹을지
+                결정하는 것이 좋습니다.
+
+                카네토라에는 츠케지루에 라유와 이치미(고춧가루)가 넣어져서 나오는 카라카라 츠케멘(辛辛つけ麺)도 있지만, 일반 츠케멘을 주문해 먹다가 테이블에 있는 이치미(一味, 고춧가루)를 듬뿍 넣어
+                맵게 먹는 것이 한 번에 두 가지 맛을 즐길 수 있는 좋은 팁입니다. 돼지고기와 생선의 진한 맛이 칼칼한 맛으로 변신하는 순간의 맛을 포착해 보세요! 이치미를 듬뿍 넣어서 먹은 후, 매운
+                입안을 마지막에 반숙 계란으로 달래주면 좋습니다.
+            </ul>
+        </div>
+    </div>
+
+    <div class="text_box1">
+        <div class="text_small_box">
+            <h1>5.키와미야 함바그</h1>
+            <img src="https://t1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/2AuX/image/dGYM15Z6KafbIM6OIbP3K1YZlUQ.png"
+                alt="">
+            <div id="map5" style="width:500px; height: 380px; display: inline-block;"></div>
+            <ul>
+                키와미야는 후쿠오카 여행에서 꼭 먹어야 할 음식으로 항상 리스트 최상단에 포함되어 있는데요. 한국에 후쿠오카 함바그 체인이 많이 생기면서 후쿠오카에 가지 않아도 맛볼 수 있기도 합니다.
+                하지만 현지에서 먹는 오리지널의 맛도 경험할 필요가 있는데요. 밥과 샐러드 된장국, 아이스크림이 세트에 포함되어 나오며, 고기를 조금씩 떼어내 불에 달궈진 돌에 구워 먹는 시스템입니다.
+            </ul>
+        </div>
+    </div>
+
 
 
 

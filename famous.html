@@ -10,6 +10,7 @@
         body {
             background-color: #00002E;
         }
+
         .header {
             position: fixed;
             width: 100%;
@@ -19,16 +20,44 @@
         }
 
         .list {
-            margin: 230px 0px 0px 0px;
-            padding: 200px 0px 0px 0px;
+            margin: 100px 0px 0px 0px;
+            padding: 100px 0px 0px 0px;
             height: 550px;
             font-weight: bold;
             font-size: 25px;
             width: 300px;
             text-align: left;
-            position: absolute;
-            left: 0;
             background: #00002E;
+            position: fixed;
+            left: 50px;
+            z-index: 9999;
+        }
+
+        /* .list 내부의 a 태그에 호버 효과 추가 */
+        .list a:hover {
+            background-color: #fff;
+            color: #6098FF;
+        }
+
+        /* .list 내부의 a 태그 스타일 설정 */
+        .list a {
+            color: white;
+            padding: 50px;
+            display: block;
+            text-decoration: none;
+        }
+
+        /* .btn2 클래스에 호버 효과 추가 */
+        .btn2:hover {
+            color: #6098FF;
+        }
+
+        /* .btn2 클래스의 기본 스타일 설정 */
+        .btn2 {
+            color: white;
+            padding: 50px;
+            display: block;
+            text-decoration: none;
         }
 
         a {
@@ -57,11 +86,11 @@
         }
 
         .big_box1 {
-            padding: 200px 0px 0px 300px;
+            padding: 200px 0px 0px 326px;
         }
 
         .big_box2 {
-            padding: 0px 0px 0px 300px;
+            padding: 0px 0px 0px 326px;
             clear: both;
         }
 
@@ -86,23 +115,19 @@
             background-color: #fff;
         }
 
-        .btn2:hover::before {
-            opacity: 1;
-            background-color: #fff;
-            -webkit-transform: scaleY(1);
-            transform: scaleY(1);
-            transition: -webkit-transform .6s cubic-bezier(.08, .35, .13, 1.02), opacity .4s;
-            transition: transform .6s cubic-bezier(.08, .35, .13, 1.02), opacity
+        h1 {
+            color: white;
+            border-bottom: 2px solid white;
         }
-       
     </style>
 </head>
 
 <body>
     <iframe src="./header.html" class="header"></iframe>
-    
+
     <div class="wrapper">
         <div class="list">
+            <h1 style="margin-left: 50px;">후쿠오카</h1>
             <a style="padding: 50px;" class="btn2" href="famous.html" target="_top">● 유명관광지</a>
             <a style="padding: 50px;" class="btn2" href="restaurant.html" target="_top">● 맛집추천</a>
             <a style="padding: 50px;" class="btn2" href="weather.html" target="_top">● 기후</a>

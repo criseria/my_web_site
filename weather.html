@@ -11,7 +11,7 @@
     <script>
         $(function () {
             $(window).scroll(function () {
-                if ($(this).scrollTop() > 300) {
+                if ($(this).scrollTop() > 200) {
                     $('#MOVE_TOP_BTN').fadeIn();
                 } else {
                     $('#MOVE_TOP_BTN').fadeOut();
@@ -24,6 +24,25 @@
                 }, 400);
                 return false;
             });
+        });
+
+        $(function () {
+            // iframe 요소 숨기는 함수
+            function hideIframeOnScroll() {
+                if ($(window).scrollTop() > 200) {
+                    $('iframe').hide();
+                } else {
+                    $('iframe').show();
+                }
+            }
+
+            // 스크롤 이벤트 핸들러 등록
+            $(window).scroll(function () {
+                hideIframeOnScroll();
+            });
+
+            // 페이지 로드시 초기 설정
+            hideIframeOnScroll();
         });
     </script>
 
@@ -41,16 +60,17 @@
         }
 
         .list {
-            margin: 230px 0px 0px 0px;
-            padding: 200px 0px 0px 0px;
+            margin: 100px 0px 0px 0px;
+            padding: 100px 0px 0px 0px;
             height: 550px;
             font-weight: bold;
             font-size: 25px;
             width: 300px;
             text-align: left;
-            position: absolute;
-            left: 0;
             background: #00002E;
+            position: fixed;
+            left: 50px;
+            z-index: 9999;
         }
 
         .btn2::before {
@@ -69,19 +89,33 @@
             transition: all .3s
         }
 
-        .btn2:hover {
-            color: #6098FF;
+        /* .list 내부의 a 태그에 호버 효과 추가 */
+        .list a:hover {
             background-color: #fff;
+            color: #6098FF;
         }
 
-        .btn2:hover::before {
-            opacity: 1;
-            background-color: #fff;
-            -webkit-transform: scaleY(1);
-            transform: scaleY(1);
-            transition: -webkit-transform .6s cubic-bezier(.08, .35, .13, 1.02), opacity .4s;
-            transition: transform .6s cubic-bezier(.08, .35, .13, 1.02), opacity
+        /* .list 내부의 a 태그 스타일 설정 */
+        .list a {
+            color: white;
+            padding: 50px;
+            display: block;
+            text-decoration: none;
         }
+
+        /* .btn2 클래스에 호버 효과 추가 */
+        .btn2:hover {
+            color: #6098FF;
+        }
+
+        /* .btn2 클래스의 기본 스타일 설정 */
+        .btn2 {
+            color: white;
+            padding: 50px;
+            display: block;
+            text-decoration: none;
+        }
+
 
         a {
             color: white;
@@ -94,7 +128,7 @@
             float: left;
             display: inline-block;
             position: relative;
-            margin: 300px 0px 0px 350px;
+            margin: 300px 0px 0px 420px;
         }
 
         ul {
@@ -114,7 +148,7 @@
         }
 
         .img_box {
-            margin: 330px 0px 0px 900px;
+            margin: 330px 0px 0px 980px;
             float: left;
             position: absolute;
             display: block;
@@ -132,13 +166,14 @@
 
         a#MOVE_TOP_BTN {
             position: fixed;
-            right: 5%;
+            right: 8%;
             bottom: 50px;
             display: none;
             z-index: 999;
             width: 50px;
             height: 50px;
         }
+
         #top_btn {
             width: 50px;
             height: 50px;
@@ -151,6 +186,7 @@
 
     <div class="wrapper">
         <div class="list">
+            <h1 style="margin-left: 50px;">후쿠오카</h1>
             <a style="padding: 50px;" class="btn2" href="famous.html" target="_top">● 유명관광지</a>
             <a style="padding: 50px;" class="btn2" href="restaurant.html" target="_top">● 맛집추천</a>
             <a style="padding: 50px;" class="btn2" href="weather.html" target="_top">● 기후</a>
@@ -169,7 +205,7 @@
                 최저 온도는 4℃(39℉)입니다. 다운재킷이나 두꺼운 코트를 준비해야 합니다. 목도리, 장갑, 타이츠를 준비해도 좋습니다. 그리고, 도쿄보다 눈이 많이 내립니다. 도로가 결빙될 수
                 있으므로 주의해야 합니다!
 
-                하카타의 대표적인 행사 중 하나인 타마세세리 제례가 하코자키주 신사에서 열립니다. 이 행사는 사람들이 그 해 농촌과 바다에서의 풍년을 기원하는 축제입니다. 축제의 전통 중 하나는 일군의
+                하카타의 대표적인 행사 중 하나인 <a href="" style="display: inline; color: red; font-size: 30px;">타마세세리 제례</a>가 하코자키주 신사에서 열립니다. 이 행사는 사람들이 그 해 농촌과 바다에서의 풍년을 기원하는 축제입니다. 축제의 전통 중 하나는 일군의
                 남자들이 큰 나무 공을 갖기 위해서 필사적으로 벌이는 경합입니다.</li>
             </ul>
         </div>
